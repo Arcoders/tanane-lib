@@ -1,0 +1,2 @@
+declare module '@arcoders/ui';
+

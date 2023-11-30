@@ -1,0 +1,39 @@
+.table {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+
+	th {
+		color: #28224B;
+		font-size: 12px;
+		font-family: Roboto;
+		font-weight: 700;
+		line-height: 18px;
+		word-wrap: break-word;
+		font-family: sans-serif
+	}
+
+	td {
+		color: #666666;
+		font-size: 14px;
+		font-weight: 400;
+		line-height: 20px;
+		letter-spacing: 0.04px;
+		word-wrap: break-word;
+	}
+
+	tr {
+		border: 1px solid rgba(0, 0, 0, 0.12)
+	}
+
+	td,
+	th {
+		border-top: 1px solid #dddddd;
+		text-align: left;
+		padding: 8px;
+
+	}
+
+	.selected {
+		background-color: rgba($color: #3b82f680, $alpha: .1);
+	}
+}

@@ -1,0 +1,31 @@
+{
+  "name": "ui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/main.js",
+  "scripts": {
+    "build": "tsc && vite build",
+    "build-sb": "storybook build",
+    "sb": "storybook dev -p 6006",
+    "coverage": "vitest run --coverage",
+    "test": "vitest",
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "pre-publish": "yarn build && yarn lint && yarn test"
+  },
+  "private": false,
+  "keywords": [],
+  "author": "Ismail Haytam Tanane",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "dependencies": {
+    "atoms": "^0.2.0"
+  },
+  "gitHead": "4c4d31866140966de0c713303e7010615d6040a9"
+}
