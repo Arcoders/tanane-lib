@@ -5,7 +5,7 @@ export default getBaseConfig({
   lib: {
     entry: path.resolve(__dirname, "src/index.ts"),
     name: "Ui",
-    fileName: "ui",
+    fileName: "index",
   },
 });
 

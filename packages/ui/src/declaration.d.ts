@@ -1,2 +1,2 @@
-declare module '@arcoders/ui';
+declare module 'tanane-lib-ui';
 

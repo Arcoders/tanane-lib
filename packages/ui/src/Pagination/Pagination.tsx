@@ -1,8 +1,8 @@
 import React from 'react';
-import { Button } from '@arcoders/ui';
+import { Button } from 'tanane-lib-ui';
 import usePagination from './hooks/usePagination';
 
-interface PaginationProps {
+export interface PaginationProps {
 	totalPages: number; // Todo: rename prop
 	currentPage: number;
 	visiblePages: number;
