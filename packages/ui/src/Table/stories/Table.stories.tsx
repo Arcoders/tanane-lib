@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Table as TableComponent } from '../Table'
 
-
 const meta = {
 	title: 'Atoms/Table',
 	component: TableComponent,

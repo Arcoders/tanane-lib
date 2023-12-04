@@ -1,5 +1,5 @@
-import classnames from '../utils/classnames'
-import css from './Styles.module.scss'
+import classnames from '../utils/classnames';
+import css from './Styles.module.scss';
 
 export type ButtonVariantType =
 	| 'text'
@@ -11,6 +11,7 @@ export type ButtonColorType =
 	| 'secondary'
 	| 'success'
 	| 'warning'
+	| 'danger'
 
 export type ButtonVariantSize =
 	| 'small'
@@ -31,22 +32,18 @@ export const Button = ({
 	size = 'medium',
 	modifiers = '',
 	...props
-}: ButtonProps) => {
-	const btnClasses = classnames(
-		css.btn,
-		css[`btn__${color}`],
-		css[`btn--${size}`],
-		css[`btn-${variant}__${color}`],
-		modifiers
-	)
-
-	return (
-		<button
-			{...props}
-			className={btnClasses}>
-			{props.children}
-		</button>
-	)
-}
+}: ButtonProps) => (
+	<button
+		{...props}
+		className={classnames(
+			css.btn,
+			css[`btn__${color}`],
+			css[`btn--${size}`],
+			css[`btn-${variant}__${color}`],
+			modifiers
+		)}>
+		{props.children}
+	</button>
+)
 
 Button.displayName = 'Button'

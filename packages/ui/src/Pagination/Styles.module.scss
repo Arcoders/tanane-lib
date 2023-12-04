@@ -1,0 +1,30 @@
+.pagination {
+  display: flex;
+}
+
+.items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 20px;
+  span {
+    color: $darkgrey;
+    padding: 0 7px;
+  }
+
+  input {
+    width: 35px;
+    height: 20px;
+    appearance: none;
+    -moz-appearance: none;
+    border: 1px solid $primary;
+    border-radius: 5px;
+    outline: 0;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+}

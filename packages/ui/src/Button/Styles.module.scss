@@ -4,7 +4,7 @@ $buttonStyles: (
     "textColor": $white
   ),
   "secondary": (
-    "bg": $mediumgrey,
+    "bg": $darkgrey,
     "textColor": $white
   ),
   "warning": (
@@ -14,6 +14,10 @@ $buttonStyles: (
   "success": (
     "bg": $success,
     "textColor": $white
+  ),
+  "danger": (
+    "bg": salmon,
+    "textColor": white
   )
 );
 

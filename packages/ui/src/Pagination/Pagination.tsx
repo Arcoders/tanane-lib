@@ -1,59 +1,44 @@
-import React from 'react';
-import { Button } from 'tanane-lib-ui';
-import usePagination from './hooks/usePagination';
+import { usePagination, type PaginationProps } from './hooks/usePagination';
+import ItemsPerPage from './ItemsPerPage';
+import PaginationDefaultRender from './PaginationDefaultRender';
 
-export interface PaginationProps {
-	totalPages: number; // Todo: rename prop
-	currentPage: number;
-	visiblePages: number;
-	onPageChange: (page: number) => void;
-}
+import css from './Styles.module.scss'
 
-export const Pagination: React.FC<PaginationProps> = (props) => {
-	const { totalPages, currentPage, onPageChange, visiblePages } = props;
-	const { page, handlePageChange, calculatePages } = usePagination({
-		totalPages,
+export const Pagination: React.FC<PaginationProps> = ({
+	simple,
+	totalItems,
+	currentPage,
+	onPageChange,
+	visiblePages,
+	defaultItemsPerPage
+}) => {
+	const {
+		page,
+		itemsPerPage,
+		calculatePages,
+		isNextDisabled,
+		handlePageChange,
+		isPreviousDisabled,
+		handelOnItemsPerPage,
+	} = usePagination({
+		totalItems,
 		currentPage,
 		visiblePages,
 		onPageChange,
+		defaultItemsPerPage
 	});
 
-	const pages = calculatePages();
+	const pages = simple ? null : calculatePages();
 
 	return (
-		<div className="pagination">
-			<Button
-				variant="text"
-				color="secondary"
-				size="small"
-				onClick={() => handlePageChange(page - 1)}
-				disabled={page === 1}
-			>
-				Previous
-			</Button>
-			{pages.map((pageNumber, index) => (
-				<>
-					{pageNumber < 0 ? <span key={index}>...</span> : (
-						<Button
-							variant="text"
-							color={page === pageNumber ? 'primary' : 'secondary'}
-							key={index}
-							onClick={() => handlePageChange(pageNumber)}
-						>
-							{pageNumber}
-						</Button>
-					)}
-				</>
-			))}
-			<Button
-				variant="text"
-				color="secondary"
-				size="small"
-				onClick={() => handlePageChange(page + 1)}
-				disabled={page === totalPages}
-			>
-				Next
-			</Button>
+		<div className={css.pagination}>
+			{!simple && <ItemsPerPage itemsPerPage={itemsPerPage} handelOnItemsPerPage={handelOnItemsPerPage} />}
+			<PaginationDefaultRender
+				page={page}
+				pages={pages}
+				isNextDisabled={isNextDisabled}
+				handlePageChange={handlePageChange}
+				isPreviousDisabled={isPreviousDisabled} />
 		</div>
 	);
 };

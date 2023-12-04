@@ -1,3 +1,4 @@
+import React from 'react';
 import '@testing-library/jest-dom';
 import { describe, test, vi, expect } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
@@ -5,14 +6,13 @@ import { Pagination } from '..';
 
 describe('Pagination component', () => {
   const mockOnPageChange = vi.fn();
-  const totalPages = 10;
   const currentPage = 5;
-  const visiblePages = 5;
 
   const paginationProps = {
-    totalPages,
     currentPage,
-    visiblePages,
+    totalItems: 50,
+    visiblePages: 5,
+    defaultItemsPerPage: 5,
     onPageChange: mockOnPageChange,
   };
 

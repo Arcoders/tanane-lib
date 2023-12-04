@@ -1,0 +1,43 @@
+$AlertStyles: (
+  "primary": (
+    "bg": $primary,
+    "textColor": $white
+  ),
+  "success": (
+    "bg": $success,
+    "textColor": $white
+  ),
+  "warning": (
+    "bg": $warning,
+    "textColor": $darkgrey
+  ),
+  "danger": (
+    "bg": salmon,
+    "textColor": white
+  )
+);
+
+.alert {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: transform 0.3s ease-in-out;
+  box-shadow: $shadow;
+
+  @each $name, $styles in $AlertStyles {
+    &--#{$name} {
+      background-color: map-get($styles, "bg");
+      color: map-get($styles, "textColor");
+    }
+  }
+
+  .close {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    border-radius: 50%;
+  }
+}

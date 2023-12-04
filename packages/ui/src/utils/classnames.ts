@@ -1,4 +1,4 @@
-type ClassValue = string | number | boolean | null | undefined | { [key: string]: boolean };
+export type ClassValue = string | number | boolean | null | undefined | { [key: string]: boolean };
 
 function classnames(...classes: ClassValue[]): string {
   const classNamesArray: string[] = [];
