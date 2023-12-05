@@ -24,10 +24,7 @@ export const AlertProvider: React.FC<{ children: ReactNode }> = ({ children }) =
       const alertContainer = document.getElementById(ELEMENT_ID);
   
       if (alertContainer) {
-        ReactDOM.render(
-          <Alert message={message} variant={variant} closeAlert={closeAlert}/>,
-          alertContainer
-        );
+        setAlertContent(<Alert message={message} variant={variant} closeAlert={closeAlert}/>)
       }
     };
   
