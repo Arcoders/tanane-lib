@@ -15,20 +15,20 @@ export const AlertProvider: React.FC<{ children: ReactNode }> = ({ children }) =
         document.body.appendChild(container);
       }
     }, []);
+
+    const closeAlert = () => {
+      setAlertContent(null);
+    };
   
     const showAlert = (message: string, variant?: AlertVariantType) => {
       const alertContainer = document.getElementById(ELEMENT_ID);
   
       if (alertContainer) {
         ReactDOM.render(
-          <Alert message={message} variant={variant} />,
+          <Alert message={message} variant={variant} closeAlert={closeAlert}/>,
           alertContainer
         );
       }
-    };
-
-    const closeAlert = () => {
-      setAlertContent(null);
     };
   
     const contextValue: AlertContextType = { showAlert, closeAlert };
