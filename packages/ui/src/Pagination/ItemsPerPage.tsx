@@ -11,7 +11,7 @@ const ItemsPerPage: React.FC<ItemsPerPageProps>  = ({ itemsPerPage, handelOnItem
         <input
             min="1"
             type="number"
-            value={itemsPerPage.toString()}
+            placeholder={itemsPerPage.toString()}
             onChange={({ target: { value } }) => {
                 value && handelOnItemsPerPage(parseInt(value))
             }}

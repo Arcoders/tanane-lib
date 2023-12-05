@@ -40,7 +40,7 @@ export const usePagination = ({
     onPageChange({ currentPage: page, itemsPerPage: itemsNumber, offset: (page - 1) * itemsPerPage });
   }
 
-  const totalPages = Math.round(totalItems / itemsPerPage);
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
 
   const calculatePages = () => {
     const pages: number[] = [];

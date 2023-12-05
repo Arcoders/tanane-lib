@@ -32,7 +32,10 @@ export const Pagination: React.FC<PaginationProps> = ({
 
 	return (
 		<div className={css.pagination}>
-			{!simple && <ItemsPerPage itemsPerPage={itemsPerPage} handelOnItemsPerPage={handelOnItemsPerPage} />}
+			{!simple && <ItemsPerPage 
+				itemsPerPage={itemsPerPage} 
+				handelOnItemsPerPage={handelOnItemsPerPage} />}
+
 			<PaginationDefaultRender
 				page={page}
 				pages={pages}
