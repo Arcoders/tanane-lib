@@ -2,8 +2,16 @@ import { Button } from 'tanane-lib-ui';
 
 import css from './Styles.module.scss'
 
+type Options = {
+    previous: string | JSX.Element,
+    next: string | JSX.Element
+    displayText: string,
+    itemsText: string
+  }
+
 interface PaginationDefaultRenderProps {
     page: number;
+    options: Options;
     pages: number[] | null;
     isNextDisabled: boolean;
     isPreviousDisabled: boolean;
@@ -13,19 +21,21 @@ interface PaginationDefaultRenderProps {
 const PaginationDefaultRender: React.FC<PaginationDefaultRenderProps> = ({
     page,
     pages,
+    options,
     isNextDisabled,
+    handlePageChange,
     isPreviousDisabled,
-    handlePageChange
 }) => {
     return (
         <div className={css.pages}>
             <Button
+                size="large"
                 variant="text"
                 color="secondary"
                 onClick={() => handlePageChange(page - 1)}
                 disabled={isNextDisabled}
             >
-                Previous
+                {options.next}
             </Button>
 
             {pages?.map(pageNumber => (
@@ -47,7 +57,7 @@ const PaginationDefaultRender: React.FC<PaginationDefaultRenderProps> = ({
                 onClick={() => handlePageChange(page + 1)}
                 disabled={isPreviousDisabled}
             >
-                Next
+                {options.previous}
             </Button>
         </div>
     );

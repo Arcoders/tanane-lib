@@ -1,8 +1,15 @@
 import { useState, useEffect } from 'react';
 
 type PageChange = { currentPage: number, itemsPerPage: number, offset: number }
+type Options = {
+  previous: string | JSX.Element,
+  next: string | JSX.Element
+  displayText: string,
+  itemsText: string
+}
 export interface PaginationProps {
   simple?: boolean;
+  options?: Options;
   totalItems: number;
   currentPage?: number;
   visiblePages?: number;
@@ -79,10 +86,10 @@ export const usePagination = ({
 
   return {
     page,
-    handlePageChange,
-    calculatePages,
     itemsPerPage,
     isNextDisabled,
+    calculatePages,
+    handlePageChange,
     isPreviousDisabled,
     handelOnItemsPerPage
   };

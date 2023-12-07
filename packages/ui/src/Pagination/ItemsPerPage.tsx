@@ -1,13 +1,21 @@
 import css from './Styles.module.scss'
 
+type Options = {
+    previous: string | JSX.Element,
+    next: string | JSX.Element
+    displayText: string,
+    itemsText: string
+  }
+
 interface ItemsPerPageProps {
     itemsPerPage: number;
+    options: Options,
     handelOnItemsPerPage: (itemsPerPage: number) => void;
 }
 
-const ItemsPerPage: React.FC<ItemsPerPageProps>  = ({ itemsPerPage, handelOnItemsPerPage }) => (
+const ItemsPerPage: React.FC<ItemsPerPageProps>  = ({ itemsPerPage, handelOnItemsPerPage, options }) => (
     <div className={css.items}>
-        <span>Display</span>
+        <span>{options.displayText}</span>
         <input
             min="1"
             type="number"
@@ -16,7 +24,7 @@ const ItemsPerPage: React.FC<ItemsPerPageProps>  = ({ itemsPerPage, handelOnItem
                 value && handelOnItemsPerPage(parseInt(value))
             }}
         />
-        <span>rows.</span>
+        <span>{options.itemsText}</span>
     </div>
 );
 

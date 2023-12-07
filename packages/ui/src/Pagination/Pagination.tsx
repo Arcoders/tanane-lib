@@ -1,3 +1,4 @@
+import { DEFALUT_OPTIONS } from './contants';
 import { usePagination, type PaginationProps } from './hooks/usePagination';
 import ItemsPerPage from './ItemsPerPage';
 import PaginationDefaultRender from './PaginationDefaultRender';
@@ -10,7 +11,8 @@ export const Pagination: React.FC<PaginationProps> = ({
 	currentPage,
 	onPageChange,
 	visiblePages,
-	defaultItemsPerPage
+	defaultItemsPerPage,
+	options = DEFALUT_OPTIONS
 }) => {
 	const {
 		page,
@@ -28,17 +30,21 @@ export const Pagination: React.FC<PaginationProps> = ({
 		defaultItemsPerPage
 	});
 
+	if (totalItems === 0) return null;
+
 	const pages = simple ? null : calculatePages();
 
 	return (
 		<div className={css.pagination}>
-			{!simple && <ItemsPerPage 
-				itemsPerPage={itemsPerPage} 
+			{!simple && <ItemsPerPage
+				options={options}
+				itemsPerPage={itemsPerPage}
 				handelOnItemsPerPage={handelOnItemsPerPage} />}
 
 			<PaginationDefaultRender
 				page={page}
 				pages={pages}
+				options={options}
 				isNextDisabled={isNextDisabled}
 				handlePageChange={handlePageChange}
 				isPreviousDisabled={isPreviousDisabled} />

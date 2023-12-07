@@ -71,7 +71,7 @@ $buttonSizes: (
       }
 
       &:focus {
-        box-shadow: 0 0 0 3px darken($bg, 10%);
+        box-shadow: 0 0 0 1px darken($bg, 10%);
         outline: none;
       }
 
@@ -91,11 +91,10 @@ $buttonSizes: (
 		box-shadow: unset;
 		min-height: 20px;
 		min-width: 20px;
-		padding: 0;
 		margin: 0 5px;
   
 		&:hover {
-		  background-color: unset;
+		  background-color:  whitesmoke;
 		  color: darken($bg, 10%);
 		  box-shadow: unset;
 		}
@@ -131,7 +130,7 @@ $buttonSizes: (
       }
     
       &:focus {
-        box-shadow: 0 0 0 3px darken($bg, 10%);
+        box-shadow: 0 0 0 1px darken($bg, 10%);
         border: none;
         outline: 0;
       }
