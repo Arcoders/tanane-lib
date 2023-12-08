@@ -4,7 +4,7 @@ import classnames from '../utils/classnames'
 export type AlertVariantType = 'primary' | 'success' | 'warning' | 'danger';
 export interface AlertProps {
 	variant?: AlertVariantType;
-	message: string;
+	message?: string;
 }
 
 export const Alert: React.FC<AlertProps> = ({ message, variant = 'primary' }) => (
