@@ -46,9 +46,9 @@ jobs:
       - name: Version packages
         run: npx lerna version --conventional-commits --yes
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }} 
           
       - name: Publish packages
         run: npx lerna publish from-package --yes --force-publish=*
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.YOUR_NPM_TOKEN }} 
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }} 
