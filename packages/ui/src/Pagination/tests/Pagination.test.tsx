@@ -1,4 +1,3 @@
-import React from 'react';
 import '@testing-library/jest-dom';
 import { describe, test, vi, expect } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
@@ -14,6 +13,12 @@ describe('Pagination component', () => {
     visiblePages: 5,
     defaultItemsPerPage: 5,
     onPageChange: mockOnPageChange,
+    options: {
+      next: 'Next',
+      previous: 'Previous',
+      displayText: 'Displaying',
+      itemsText: 'Items per page.'
+    }
   };
 
   test('Renders pagination buttons', () => {
@@ -38,10 +43,18 @@ describe('Pagination component', () => {
     expect(nextButton).not.toBeDisabled();
 
     fireEvent.click(previousButton);
-    expect(mockOnPageChange).toHaveBeenCalledWith(currentPage - 1);
+    expect(mockOnPageChange).toHaveBeenCalledWith({
+      currentPage: 6,
+      itemsPerPage: 5,
+      offset: 30,
+    });
 
     fireEvent.click(nextButton);
-    expect(mockOnPageChange).toHaveBeenCalledWith(currentPage);
+    expect(mockOnPageChange).toHaveBeenCalledWith({
+      currentPage: 5,
+      itemsPerPage: 5,
+      offset: 25,
+    });
   });
 
   test('Highlights active page correctly', () => {
@@ -59,6 +72,10 @@ describe('Pagination component', () => {
     const pageButton = screen.getByRole('button', { name: '6' });
     fireEvent.click(pageButton);
 
-    expect(mockOnPageChange).toHaveBeenCalledWith(6);
+    expect(mockOnPageChange).toHaveBeenCalledWith({
+      currentPage: 6,
+      itemsPerPage: 5,
+      offset: 30,
+    });
   });
 });

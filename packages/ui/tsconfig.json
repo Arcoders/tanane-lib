@@ -23,9 +23,9 @@
     "skipLibCheck": true,
     "target": "es5",
     "module": "ESNext",
-    "downlevelIteration": true
+    "downlevelIteration": true,
   },
   "include": ["src/*.ts", "src/**/*.ts", "src/**/*.tsx", "src/*.d.ts"],
-  "exclude": ["node_modules", "src/**/tests/*.test.tsx"]
+  "exclude": ["node_modules"]
 
 }

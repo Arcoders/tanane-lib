@@ -1,9 +1,0 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
-
-exports[`Button component rendering > Renders with default classes 1`] = `
-<button
-  class="_btn_807ef3 _btn__primary_807ef3 _btn--medium_807ef3 _btn-contained__primary_807ef3"
->
-  Click me
-</button>
-`;

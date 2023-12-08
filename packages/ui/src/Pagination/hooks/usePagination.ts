@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 
+const DEFAULT_ITEMS_PER_PAGE = 10;
+
 type PageChange = { currentPage: number, itemsPerPage: number, offset: number }
+
 type Options = {
   previous: string | JSX.Element,
   next: string | JSX.Element
@@ -16,8 +19,6 @@ export interface PaginationProps {
   defaultItemsPerPage: number;
   onPageChange: (page: PageChange) => void;
 }
-
-const DEFAULT_ITEMS_PER_PAGE = 10;
 
 export const usePagination = ({
   totalItems,
@@ -42,7 +43,7 @@ export const usePagination = ({
     onPageChange({ currentPage: pageNumber, itemsPerPage, offset: pageNumber * itemsPerPage });
   };
 
-  const handelOnItemsPerPage = (itemsNumber: number) => {
+  const handelOnItemsPerPage = (itemsNumber: number) => { 
     setItemsPerPage(itemsNumber);
     onPageChange({ currentPage: page, itemsPerPage: itemsNumber, offset: (page - 1) * itemsPerPage });
   }

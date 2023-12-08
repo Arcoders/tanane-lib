@@ -50,5 +50,9 @@ export const getBaseConfig = ({ plugins = [], lib }) =>
         },
       },
     },
+    test: {
+      globals: true,
+      environment: 'jsdom',
+      }
   });
 
