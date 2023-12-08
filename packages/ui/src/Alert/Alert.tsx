@@ -5,12 +5,11 @@ export type AlertVariantType = 'primary' | 'success' | 'warning' | 'danger';
 export interface AlertProps {
 	variant?: AlertVariantType;
 	message: string;
-	display: boolean;
 }
 
-export const Alert: React.FC<AlertProps> = ({ variant = 'primary', message, display }) => (
+export const Alert: React.FC<AlertProps> = ({ message, variant = 'primary' }) => (
 	<>
-		{display && <div className={classnames(css.alert, css[`alert--${variant}`])}>
+		{message && <div className={classnames(css.alert, css[`alert--${variant}`])}>
 			<span>{message}</span>
 		</div>}
 	</>

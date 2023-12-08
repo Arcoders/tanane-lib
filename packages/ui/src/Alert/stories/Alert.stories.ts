@@ -16,7 +16,6 @@ type Story = StoryObj<typeof meta>
 export const Alert: Story = {
 	args: {
 		variant: 'danger',
-		message: 'This is an alert message.',
-		display: true
+		message: 'This is an alert message.'
 	},
 }
