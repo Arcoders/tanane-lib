@@ -30,6 +30,7 @@ npm run test
 ```
 
 ## Preview:
-## NOTE: Please refer to the documentation provided for each component to ensure accurate and proper usage.
 
-[Storybook site](https:arcoders.github.io/tanane-lib)
+Please refer to the documentation provided for each component to ensure accurate and proper usage.
+
+[Storybook site](https://arcoders.github.io/tanane-lib)
