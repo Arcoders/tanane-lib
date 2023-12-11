@@ -49,7 +49,7 @@ jobs:
         run: npx lerna run build
       
       - name: Version packages
-        run: npx lerna version --conventional-commits --yes
+        run: npx lerna version --conventional-commits --yes --no-push
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }} 
           
