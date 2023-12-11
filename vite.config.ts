@@ -23,7 +23,7 @@ export default vitestConfig({
 		globals: true,
 		environment: 'jsdom',
 	  },
-    base: '/tanane-lib'
+    base: '/storybook-static'
 })
 
 const isExternal = (id: string) => !id.startsWith(".") && !path.isAbsolute(id);
