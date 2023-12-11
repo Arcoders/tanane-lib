@@ -22,7 +22,8 @@ export default vitestConfig({
 	test: {
 		globals: true,
 		environment: 'jsdom',
-	  }
+	  },
+    base: 'https:arcoders.github.io/tanane-lib'
 })
 
 const isExternal = (id: string) => !id.startsWith(".") && !path.isAbsolute(id);
